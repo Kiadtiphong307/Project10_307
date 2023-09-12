@@ -1,4 +1,4 @@
-import './assets/main.css'
+//import './assets/main.css' can remove import
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
@@ -6,19 +6,25 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
-//import Vue from 'vue'
-import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-app.use(BootstrapVue)
-app.use(BootstrapVueIcons)
+// Vuetify
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+const vuetify = createVuetify({
+  components,
+  directives,
+})
 
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
+
+app.use(vuetify)
 
 app.mount('#app')
